@@ -38,3 +38,20 @@ function ConsumeAPIData() {
     console.log('After Calling API');
 }
 ConsumeAPIData();
+
+
+function handleSelection(){
+
+    let ddl_movies = document.getElementById('ddl_movies');
+    let selected_movie = ddl_movies.value;
+
+    fetch(`https://api.tvmaze.com/search/shows?q=${encodeURIComponent(selected_movie)}`)
+        .then((response) => response.json())
+        .then((json) => {
+                
+                let movie_info = document.getElementById('movie_info');
+                let movie_lang = json[0].show.language;
+                let movie_date = json[0].show.premiered;
+                movie_info.innerHTML = `${json[0].show.name}, Language: ${movie_lang}, Premiered: ${movie_date }`;
+            });
+}
