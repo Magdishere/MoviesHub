@@ -13,7 +13,7 @@ body{
 
 .MovieImage{
     border: 5px solid black;
-    border-radius: 5px;
+    border-radius: 7px;
     margin: 10px;
     cursor: pointer;
 
